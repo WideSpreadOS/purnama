@@ -76,6 +76,8 @@ font-family: 'Amatic SC', cursive;
     }
     main {
         outline: 1px red solid;
+        padding: 10px;
+        min-height: 70vh;
     }
     #coreMenu {
         font-family: 'Amatic SC', cursive;
@@ -92,8 +94,23 @@ font-family: 'Amatic SC', cursive;
         flex-direction: row;
         flex-wrap: nowrap;
         align-items: center;
-        justify-content: center;
+        justify-content: space-evenly;
     }
+    #coreMenu>.core-menu-item a {
+        text-decoration: none;
+        color: #fff;
+        font-size: 1.3rem;
+    }
+
+    .section-menu {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 100%;
+    }
+
+
     #coreContainer {
     }
 
@@ -143,6 +160,15 @@ font-family: 'Amatic SC', cursive;
         color: #fff;
         text-decoration: none;
     }
+
+    .section-header {
+        text-align: center;
+        padding: 10px;
+        font-size: 1.5rem;
+    }
+    .section-header h3 {
+        color: #298ec8;
+    }
     .welcome-user {
 
     }
@@ -190,6 +216,25 @@ font-family: 'Amatic SC', cursive;
         font-family: 'Amatic SC', cursive;
         font-size: 1.5rem;
     }
+
+    .user-card {
+        background: #e9a739;
+        padding: 12px;
+        border-radius: 20px;
+        margin-top: 10px;
+
+    }
+    .user-card a {
+        text-decoration: none;
+    }
+    .user-card h5 {
+        font-weight: bold;
+        color: #000;
+    }
+
+
+
+
     /* END OF MIN-WIDTH 300PX (CELLPHONE PORTRAIT) */
 }
 /* END OF MIN-WIDTH 300PX (CELLPHONE PORTRAIT) */

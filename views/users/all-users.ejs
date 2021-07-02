@@ -1,0 +1,18 @@
+<%- include('../partials/page-header') %>
+
+<main>
+    <section>
+        <div class="section-header">
+            <h3>All Yogis at Purnama</h3>
+        </div>
+        <div class="user-list">
+            <% allUsers.forEach(function(user) { %>
+                <div class="user-card">
+                    <a href="/users/<%= user.id %>">
+                        <h5><%= user.fname %> <%= user.lname %></h5>
+                    </a>
+                </div>
+            <% }) %>
+        </div>
+    </section>
+</main>

@@ -14,12 +14,12 @@ const User = require('../models/User');
 // Login Page
 router.get('/login', (req, res) => {
     const currentUser = null
-    res.render('login', {currentPageTitle: 'Login', currentUser});
+    res.render('login', {pageTitle: 'Login', currentUser});
 })
 // Register Page
 router.get('/register', (req, res) => {
     const currentUser = null
-    res.render('register', {currentPageTitle: 'Register', currentUser});
+    res.render('register', {pageTitle: 'Register', currentUser});
 })
 
 // Register Handle
@@ -80,7 +80,7 @@ router.post('/register', (req, res) => {
                     newUser.save()
                         .then(user => {
                             req.flash('success_msg', 'You are now registered and can log in');
-                            res.render('login', {currentPageTitle: 'Login'});
+                            res.render('login', {pageTitle: 'Login'});
                         })
                         .catch(err => console.log(err));
 
@@ -116,6 +116,18 @@ router.get('/dashboard', ensureAuthenticated, (req, res) => {
 router.get('/update-profile', ensureAuthenticated, (req, res) => {
     const user = req.user;
     res.render('users/update-profile', {pageTitle: 'Update Your Profile', user})
+});
+
+router.get('/all', ensureAuthenticated, async (req, res) => {
+    const user = req.user;
+    const allUsers = await User.find();
+    res.render('users/all-users', {pageTitle: 'Yogi Network', allUsers})
+});
+
+router.get('/:id', ensureAuthenticated, async (req, res) => {
+    const profileUserId = req.params.id;
+    const profileUser = await User.findById(profileUserId)
+    res.render('users/profile', {pageTitle: 'Profile', profileUser})
 });
 
 module.exports = router;

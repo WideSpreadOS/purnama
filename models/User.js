@@ -24,7 +24,18 @@ const UserSchema = new mongoose.Schema({
     joined_date: {
         type: Date,
         default: Date.now
-    }
+    },
+    allergies: [String],
+    emergency_contact: {
+        fname: String,
+        lname: String,
+        relationship: String,
+        phone: String,
+    },
+    waiver_signed: Boolean,
+    phone1: String,
+    phone2: String,
+    dob: Date
 });
 
 const User = mongoose.model('User', UserSchema);

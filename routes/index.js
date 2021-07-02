@@ -9,7 +9,9 @@ router.get('/', (req, res) => {
       res.render('welcome', {pageTitle: 'Welcome to Purnama'});
   });
 
-
+router.get('/about', (req, res) => {
+  res.render('about', {pageTitle: 'About'})
+})
 
 
 
